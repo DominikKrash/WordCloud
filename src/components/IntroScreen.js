@@ -1,19 +1,27 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import {useSelector,useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import {actionCreators} from "../state/index";
+import IntroScreenCSS from './IntroScreen.module.css'
 
-const IntroScreen = ({setLogin}) => {
+const IntroScreen = () => {
+    
+    const login = useSelector((state) => state.login); 
+    
+    const dispatch = useDispatch();
+    const {setLogin} = bindActionCreators(actionCreators, dispatch)
 
     return (
-        <div>
+        <div className={IntroScreenCSS.intro_container}>
             <h1>Wordcloud game</h1>
-            <input type="text" value=""/>
-            <button onClick={() => setLogin("notGuest")}>Play</button>
+            <input type="text" className={IntroScreenCSS.effect}
+            onChange={(event) =>setLogin(event.target.value)}
+            placeholder="Input your login"/>
+            <button className={IntroScreenCSS.button}
+            onClick={() => (console.log(login))}>Play</button>
         </div>
     )
 }
 
-IntroScreen.propTypes = {
-    setLogin: PropTypes.func.isRequired
-}
 
 export default IntroScreen
