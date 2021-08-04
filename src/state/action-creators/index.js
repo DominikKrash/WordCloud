@@ -6,3 +6,11 @@ export const setLogin = (login) => {
         })
     }
 }
+export const setQuestions = () => {
+    return (dispatch) => {
+        dispatch({
+            type: "new",
+            payload: null,
+        })
+    }
+}
