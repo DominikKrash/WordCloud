@@ -1,23 +1,24 @@
 import React from 'react'
-import GameScreenCSS from './GameScreen.module.css';
+import GameResultScreenCSS from './GameResultScreen.module.css'
 import {useSelector} from "react-redux";
 import {
     Link
   } from "react-router-dom";
 import Questions from './Questions'
 
-const GameScreen = () => {
-    
+
+
+const GameResultScreen = () => {
+
+
     const questionSet = useSelector((state) => state.questions);
     const GameHeader = () => <h1>{questionSet.question}</h1>;
 
     return (
-        <div className={GameScreenCSS.game_container}>
+        <div className={GameResultScreenCSS.game_container}>
             <GameHeader/>
-            <Questions questions={questionSet.all_words} />
-            <Link className={GameScreenCSS.button} to="/game-check">Check answers</Link>
         </div>
     )
 }
 
-export default GameScreen
+export default GameResultScreen
