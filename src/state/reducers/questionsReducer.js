@@ -5,13 +5,13 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-const reducer = (state = questionsData[0],action) => {
+const questionReducer = (state = questionsData[0],action) => {
     switch(action.type){
-        case "new":
+        case "newQuestions":
             return questionsData[getRandomInt(0,questionsData.length)];
         default:
             return state;
     }
 };
 
-export default reducer;
+export default questionReducer;

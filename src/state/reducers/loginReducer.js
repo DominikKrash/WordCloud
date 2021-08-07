@@ -1,10 +1,10 @@
-const reducer = (state = "guest",action) => {
+const loginReducer = (state = "guest",action) => {
     switch(action.type){
-        case "new":
+        case "newLogin":
             return action.payload;
         default:
             return state;
     }
 };
 
-export default reducer;
+export default loginReducer;

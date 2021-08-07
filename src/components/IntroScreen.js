@@ -7,9 +7,8 @@ import {
     Link
   } from "react-router-dom";
 const IntroScreen = () => {
-     
     const dispatch = useDispatch();
-    const {setLogin} = bindActionCreators(actionCreators, dispatch)
+    const {setLogin,setQuestions} = bindActionCreators(actionCreators, dispatch)
 
     return (
         <div className={IntroScreenCSS.intro_container}>
@@ -17,7 +16,7 @@ const IntroScreen = () => {
             <input type="text" className={IntroScreenCSS.effect}
             onChange={(event) =>setLogin(event.target.value)}
             placeholder="Input your login"/>
-            <Link className={IntroScreenCSS.button} to="/game">Play</Link>
+            <Link className={IntroScreenCSS.button} to="/game" onClick={() => setQuestions()}>Play</Link>
         </div>
     )
 }
