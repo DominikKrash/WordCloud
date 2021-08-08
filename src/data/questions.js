@@ -35,7 +35,7 @@ export const questionsData = [{
         "black",
         "cakes"
     ],
-        "good_words": [
+        good_words: [
             "red",
             "blue",
             "yellow",

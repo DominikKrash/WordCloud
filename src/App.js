@@ -2,6 +2,7 @@ import './App.css';
 import IntroScreen from './components/IntroScreen';
 import GameScreen from './components/GameScreen';
 import GameResultScreen from './components/GameResultScreen';
+import ScoreScreen from './components/ScoreScreen'
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,7 +17,7 @@ function App() {
         <Route exact path="/"><IntroScreen /></Route>
         <Route exact path="/game"><GameScreen/></Route>
         <Route exact path="/game-check"><GameResultScreen/></Route>
-        <Route exact path="/score"></Route>
+        <Route exact path="/score"><ScoreScreen/></Route>
       </Switch>
     </Router>
   );

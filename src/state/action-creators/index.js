@@ -1,35 +1,11 @@
-export const setLogin = (login) => {
-    return (dispatch) => {
-        dispatch({
-            type: "newLogin",
-            payload: login
-        })
-    }
-}
+import {addAnswer, removeAnswer} from './answerActionCreators'
+import {newLogin} from './loginActionCreators'
+import {addScore, substractScore} from './scoreActionCreators'
+import {newQuestions} from './questionsActionCreators'
 
-export const setQuestions = () => {
-    return (dispatch) => {
-        dispatch({
-            type: "newQuestions",
-            payload: null
-        })
-    }
-}
-
-export const addAnswer = (word) =>{
-    return (dispatch) => {
-        dispatch({
-            type:"addAnswer",
-            payload:word
-        })
-    }
-}
-
-export const removeAnswer = (word) =>{
-    return (dispatch) => {
-        dispatch({
-            type:"removeAnswer",
-            payload:word
-        })
-    }
-}
+export {addAnswer,
+     removeAnswer,
+      newLogin,
+      addScore, 
+      substractScore,
+      newQuestions}
