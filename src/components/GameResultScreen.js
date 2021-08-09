@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {
     Link
   } from "react-router-dom";
-import Questions from './Questions'
+import QuestionsCheck from './QuestionsCheck'
 
 
 
@@ -17,7 +17,7 @@ const GameResultScreen = () => {
     return (
         <div className={GameResultScreenCSS.game_container}>
             <GameHeader/>
-            <Questions questions={questionSet.all_words} check={1}/>
+            <QuestionsCheck questions={questionSet.all_words} correctAnswers={questionSet.good_words} />
             <Link className={GameResultScreenCSS.button} to="/score">Check score</Link>
         </div>
     )

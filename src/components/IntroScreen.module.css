@@ -88,3 +88,26 @@
     background: #2980b9;
     top: 2px;
   }
+
+  .button_not_active {
+    border: none;
+    text-align: center;
+    font-family: 'Lato';
+    font-size: inherit;
+    background: #dddddd;
+    color: #fff;
+    text-decoration: none;
+    width:45%;
+    cursor: pointer;
+    padding: 10px 10px;
+    display: inline-block;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }

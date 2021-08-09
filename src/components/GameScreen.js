@@ -14,7 +14,7 @@ const GameScreen = () => {
     return (
         <div className={GameScreenCSS.game_container}>
             <GameHeader/>
-            <Questions questions={questionSet.all_words} check={0} />
+            <Questions questions={questionSet.all_words}/>
             <Link className={GameScreenCSS.button} to="/game-check">Check answers</Link>
         </div>
     )

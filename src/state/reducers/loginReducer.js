@@ -1,4 +1,4 @@
-const loginReducer = (state = "guest",action) => {
+const loginReducer = (state = null,action) => {
     switch(action.type){
         case "newLogin":
             return action.payload;

@@ -7,17 +7,21 @@ import {
     Link
   } from "react-router-dom";
 const IntroScreen = () => {
-    const dispatch = useDispatch();
-    const {newLogin, newQuestions} = bindActionCreators(actionCreators, dispatch)
-    const score = useSelector((state) => state.score);
-    console.log(score);
+    const {newLogin, newQuestions} = bindActionCreators(actionCreators, useDispatch())
+    const login = useSelector((state) => state.login)
+
+    const PlayLink = () => 
+    (login ? <Link className={IntroScreenCSS.button} to="/game" onClick={() => newQuestions()} >Play</Link> :
+    <Link className={IntroScreenCSS.button_not_active} to="/">Input login</Link>);
+
+
     return (
         <div className={IntroScreenCSS.intro_container}>
             <h1>Wordcloud game</h1>
             <input type="text" className={IntroScreenCSS.effect}
             onChange={(event) =>newLogin(event.target.value)}
-            placeholder="Input your login"/>
-            <Link className={IntroScreenCSS.button} to="/game" onClick={() => newQuestions()}>Play</Link>
+            placeholder="Input your login" value={login}/>
+            <PlayLink />
         </div>
     )
 }

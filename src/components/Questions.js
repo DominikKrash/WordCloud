@@ -1,25 +1,20 @@
 import React from 'react'
 import  Question  from './Question'
-import QuestionCheck from './QuestionCheck'
 import  QuestionsCSS from './Questions.module.css'
-const Questions = ({questions, check}) => {
+import {useSelector} from 'react-redux'
+const Questions = ({questions}) => {
 
-    if(check === 0){
+    const answers = useSelector((state) => state.answers);
+
     return (
         <div className={QuestionsCSS.questions_container}>
             {questions.map((question) => (
-                <Question key={question} question={question}/>
+                <Question key={question} question={question}
+                 isSelected={answers.includes(question)}/>
             ))}
         </div>
-    )} 
-    else if(check === 1){
-    return (
-        <div>
-            {questions.map((question) => (
-                <QuestionCheck key={question} question={question}/>
-            ))}
-        </div>
-    )}
+    )
+    
 }
 
 export default Questions

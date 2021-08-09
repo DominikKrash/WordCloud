@@ -15,3 +15,12 @@ export const substractScore = (score) => {
         })
     }
 }
+
+export const setScore = (score) => {
+    return (dispatch) => {
+        dispatch({
+            type: "setScore",
+            payload: score
+        })
+    }
+}
