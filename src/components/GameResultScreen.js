@@ -2,7 +2,8 @@ import React from 'react'
 import GameResultScreenCSS from './GameResultScreen.module.css'
 import {useSelector} from "react-redux";
 import {
-    Link
+    Link,
+    Redirect
   } from "react-router-dom";
 import QuestionsCheck from './QuestionsCheck'
 
@@ -12,6 +13,10 @@ const GameResultScreen = () => {
 
 
     const questionSet = useSelector((state) => state.questions);
+    const login = useSelector((state) => state.login);
+    if(login === null){
+        return <Redirect to='/' />
+    }
     const GameHeader = () => <h1>{questionSet.question}</h1>;
 
     return (

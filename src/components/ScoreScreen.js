@@ -2,6 +2,9 @@ import React from 'react'
 import {useSelector,useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../state/index";
+import {
+    Link,Redirect
+  } from "react-router-dom";
 
 function countScore(setScore, addScore,substractScore,allWords, selectedAnswers, correctAnswers){
     
@@ -36,6 +39,11 @@ const ScoreScreen = () => {
     const selectedAnswers =  useSelector((state) => state.answers);
     const correctAnswers =  useSelector((state) => state.questions.good_words);
     const allWords =  useSelector((state) => state.questions.all_words);
+  
+    if(login === null){
+        return <Redirect to='/' />
+    }
+
     countScore(setScore, addScore,substractScore,
         allWords,selectedAnswers,correctAnswers);
 
