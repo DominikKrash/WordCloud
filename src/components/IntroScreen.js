@@ -12,7 +12,7 @@ const IntroScreen = () => {
 
     const PlayLink = () => 
     (login ? <Link className={IntroScreenCSS.button} to="/game" onClick={() => newQuestions()} >Play</Link> :
-    <Link className={IntroScreenCSS.button_not_active} to="/">Input login</Link>);
+    <Link className={IntroScreenCSS.button_not_active} to="/">Enter login</Link>);
 
 
     return (
@@ -20,7 +20,7 @@ const IntroScreen = () => {
             <h1>Wordcloud game</h1>
             <input type="text" className={IntroScreenCSS.effect}
             onChange={(event) =>newLogin(event.target.value)}
-            placeholder="Input your login" value={login}/>
+            placeholder="Input your login" value={login ?? ""}/>
             <PlayLink />
         </div>
     )

@@ -1,5 +1,24 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+import  QuestionCheckCSS from './QuestionCheck.module.css'
+
+function setColor(isCorrect){
+    if(isCorrect === 0)
+        return null;
+    else if(isCorrect === 1)
+        return QuestionCheckCSS.good_color;
+    else if(isCorrect === -1)
+       return  QuestionCheckCSS.bad_color;
+}
+function setAlertMessage(isCorrect){
+    if(isCorrect === 0)
+        return <span></span>;
+    else if(isCorrect === 1)
+        return <span className={QuestionCheckCSS.good_color}>Good</span>;
+    else if(isCorrect === -1)
+        return <span className={QuestionCheckCSS.bad_color}>Bad</span>;
+
+}
 
 const QuestionCheck = ({ question}) => {
     const correctAnswers = useSelector((state) => state.questions.good_words);
@@ -25,9 +44,13 @@ const QuestionCheck = ({ question}) => {
     else if(foundCorrect === true && foundSelected === true)
         isCorrect = 1;
 
+    const AlertMessage = () => setAlertMessage(isCorrect);
+    const color = setColor(isCorrect);
+
     return (
-        <div>
-            <p>{question + isCorrect}</p>
+        <div className={QuestionCheckCSS.question_container}>
+            <p className={color}>{question}</p>
+            <AlertMessage/>
         </div>
     )
 }

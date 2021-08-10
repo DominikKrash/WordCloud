@@ -1,6 +1,6 @@
 .game_container{
     width:600px;
-    height:640px;
+    min-height:640px;
     margin:120px auto;
     background:#fff;
     border-radius:25px;
@@ -39,7 +39,7 @@
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
-
+  margin-bottom: 20px;
 }
 
 .button:after {
