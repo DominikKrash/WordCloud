@@ -6,14 +6,13 @@ import {
     Redirect
   } from "react-router-dom";
 import ScoreScreenCSS from './ScoreScreen.module.css'
-function countScore(setScore, addScore,substractScore,allWords, selectedAnswers, correctAnswers){
+function countScore(setScore,allWords, selectedAnswers, correctAnswers){
     
-
-    setScore(0);
+    let correctCount = 0;
+    let incorrectCount = 0;
     allWords.forEach((question) => {
     let foundCorrect = false;
     let foundSelected = false;
-
     if(correctAnswers.find(element => element === question) === question)
         foundCorrect = true;
     
@@ -22,12 +21,14 @@ function countScore(setScore, addScore,substractScore,allWords, selectedAnswers,
 
     if(foundCorrect === false && foundSelected === false){}
     else if(foundCorrect === true && foundSelected === false)
-        substractScore(1);
+        incorrectCount++;
     else if(foundCorrect === false && foundSelected === true)
-        substractScore(1);
+        incorrectCount++
     else if(foundCorrect === true && foundSelected === true)
-        addScore(2);
+        correctCount++;
     })
+
+    setScore((2* correctCount) - incorrectCount)
 }
 
 const ScoreScreen = () => {
@@ -35,7 +36,7 @@ const ScoreScreen = () => {
     const score = useSelector((state) => state.score);
     const login = useSelector((state) => state.login);
     const dispatch = useDispatch();
-    const {setScore, addScore,substractScore} = bindActionCreators(actionCreators, dispatch)
+    const {setScore} = bindActionCreators(actionCreators, dispatch)
     const selectedAnswers =  useSelector((state) => state.answers);
     const correctAnswers =  useSelector((state) => state.questions.good_words);
     const allWords =  useSelector((state) => state.questions.all_words);
@@ -44,8 +45,7 @@ const ScoreScreen = () => {
         return <Redirect to='/' />
     }
 
-    countScore(setScore, addScore,substractScore,
-        allWords,selectedAnswers,correctAnswers);
+    countScore(setScore,allWords,selectedAnswers,correctAnswers);
 
     return (
         <div className={ScoreScreenCSS.container}>
