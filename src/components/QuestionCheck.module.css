@@ -1,0 +1,22 @@
+.question_container{
+    background:#fff;
+    color:#000;
+    margin:5px;
+    padding:5px 5px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+    border:2px solid  	rgb(0,255,255);
+    text-align:center;
+    height:46px;
+    width:146px;
+}
+.question_container > p{
+    margin:5px;
+}
+.bad_color{
+    color:#FF6347;
+}
+.good_color{
+    color:#00FF00;
+}

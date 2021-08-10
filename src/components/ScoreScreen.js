@@ -3,9 +3,9 @@ import {useSelector,useDispatch} from "react-redux";
 import {bindActionCreators} from "redux";
 import {actionCreators} from "../state/index";
 import {
-    Link,Redirect
+    Redirect
   } from "react-router-dom";
-
+import ScoreScreenCSS from './ScoreScreen.module.css'
 function countScore(setScore, addScore,substractScore,allWords, selectedAnswers, correctAnswers){
     
 
@@ -48,8 +48,9 @@ const ScoreScreen = () => {
         allWords,selectedAnswers,correctAnswers);
 
     return (
-        <div>
+        <div className={ScoreScreenCSS.container}>
             <h1>{"Congratulation, " + login + "!"}</h1>
+            <h1>Your score:</h1>
             <h2>{score + " points"}</h2>
         </div>
     )

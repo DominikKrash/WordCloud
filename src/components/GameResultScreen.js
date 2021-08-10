@@ -11,7 +11,6 @@ import QuestionsCheck from './QuestionsCheck'
 
 const GameResultScreen = () => {
 
-
     const questionSet = useSelector((state) => state.questions);
     const login = useSelector((state) => state.login);
     if(login === null){

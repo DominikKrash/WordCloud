@@ -61,4 +61,36 @@ export const questionsData = [{
            "bus",
             "train"
         ]
+},
+{
+    question: "select jobs",
+    all_words: [
+        "jeans",
+        "existence",
+        "ink",
+        "red",
+        "police man",
+        "blue",
+        "yellow",
+        "IT",
+        "laugh",
+        "behavior",
+        "expansion",
+        "white",
+        "black",
+        "fire fighter",
+        "cakes",
+        "ninja",
+        "car",
+        "bus",
+        "star",
+        "teacher"
+    ],
+        good_words: [
+            "ninja",
+            "fire fighter",
+            "IT",
+            "police man",
+            "teacher"
+        ]
 }]
