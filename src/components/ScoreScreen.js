@@ -6,6 +6,15 @@ import {
     Redirect
   } from "react-router-dom";
 import ScoreScreenCSS from './ScoreScreen.module.css'
+
+
+function scoreHeader(score){
+    if(Math.abs(score) === 1)
+        return <h2>{score + " point"}</h2>
+    else    
+        return <h2>{score + " points"}</h2>
+}
+
 function countScore(setScore,allWords, selectedAnswers, correctAnswers){
     
     let correctCount = 0;
@@ -40,6 +49,7 @@ const ScoreScreen = () => {
     const selectedAnswers =  useSelector((state) => state.answers);
     const correctAnswers =  useSelector((state) => state.questions.good_words);
     const allWords =  useSelector((state) => state.questions.all_words);
+    const ScoreHeader = () => scoreHeader(score)
   
     if(login === null){
         return <Redirect to='/' />
@@ -47,11 +57,12 @@ const ScoreScreen = () => {
 
     countScore(setScore,allWords,selectedAnswers,correctAnswers);
 
+
     return (
         <div className={ScoreScreenCSS.container}>
             <h1>{"Congratulation, " + login + "!"}</h1>
             <h1>Your score:</h1>
-            <h2>{score + " points"}</h2>
+            <ScoreHeader/>
         </div>
     )
 }
